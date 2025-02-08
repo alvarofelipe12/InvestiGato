@@ -11,60 +11,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttons_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/et_a"
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:inputType="number"
-            android:hint="@string/enter_a" />
-        <EditText
-            android:id="@+id/et_b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:inputType="numberSigned|numberDecimal"
-            android:hint="@string/enter_b" />
+            android:alpha="0.7"
+            android:contentDescription="@string/logo_of_the_company"
+            android:src="@drawable/chilled_cat_pet1" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_add"
-                android:layout_margin="4dp"
-                android:text="@string/plus"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_subtraction"
-                android:layout_margin="4dp"
-                android:text="@string/minus"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_multiplication"
-                android:layout_margin="4dp"
-                android:text="*"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_division"
-                android:layout_margin="4dp"
-                android:text="/"/>
-        </LinearLayout>
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/text_view_investigato"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Result"
-            android:textSize="24sp"
-            android:layout_margin="20dp"
-            android:id="@+id/result_tv"
-            android:gravity="center"/>
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/dark_blue"
+            android:textSize="30sp"
+            tools:text="@string/investigato_invest"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_about_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/about_us" />
+
+        <Button
+            android:id="@+id/btn_calculator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/calculate_your_investment" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="@string/login_capital_investors" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

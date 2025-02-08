@@ -13,6 +13,17 @@
         android:theme="@style/Theme.InvestiGato"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.AboutUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.InvestiGato" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

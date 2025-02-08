@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="result_is">Result is %1$s</string>
-    <string name="enter_a">Enter a</string>
-    <string name="enter_b">Enter b</string>
-    <string name="plus">+</string>
-    <string name="minus">-</string>
+    <string name="app_name">InvestiGato</string>
+    <string name="about_us">About us</string>
+    <string name="logo_of_the_company">Logo of the company</string>
+    <string name="investigato_invest">InvestiGato: Invest in your favorite cat. Certain earnings at uncertain times.</string>
+    <string name="calculate_your_investment">Calculate your investment</string>
+    <string name="login_capital_investors">Login capital investors</string>
+    <string name="we_invite_you_to_know_investigato">We invite you to know InvestiGato</string>
+    <string name="follow_us_on_facebook">Follow us on Facebook</string>
+    <string name="contact_us">Contact us</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="type_here_your_message">Type here your message</string>
+    <string name="facebook_icon_by_icons8">Facebook icon by Icons8</string>
+    <string name="send">Send</string>
 </resources>

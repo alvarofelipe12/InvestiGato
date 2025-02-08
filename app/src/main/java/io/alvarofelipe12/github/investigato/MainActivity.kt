@@ -1,18 +1,28 @@
 package io.alvarofelipe12.github.investigato
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import io.alvarofelipe12.github.investigato.databinding.ActivityMainBinding
+import io.alvarofelipe12.github.investigato.presentation.AboutUsActivity
+import io.alvarofelipe12.github.investigato.presentation.CalculatorActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+
+    companion object {
+        const val COLORED_WORD_1 = "earnings"
+        const val COLORED_WORD_2 = "times"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,30 +34,61 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.btnAdd.setOnClickListener(this)
-        binding.btnSubtraction.setOnClickListener(this)
-        binding.btnMultiplication.setOnClickListener(this)
-        binding.btnDivision.setOnClickListener(this)
+        binding.btnLogin.setOnClickListener(this)
+        binding.btnCalculator.setOnClickListener(this)
+        binding.btnAboutUs.setOnClickListener(this)
+        setStyledText()
     }
 
     override fun onClick(view: View?) {
-        val a = binding.etA.text.toString().toDouble()
-        val b = binding.etB.text.toString().toDouble()
-        var result = 0.0
-        when(view?.id) {
-            R.id.btn_add -> {
-                result = a + b
+        when (view?.id) {
+            R.id.btn_about_us -> {
+                val intent = Intent(this, AboutUsActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-            R.id.btn_subtraction -> {
-                result = a - b
+
+            R.id.btn_calculator -> {
+                val intent = Intent(this, CalculatorActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-            R.id.btn_multiplication -> {
-                result = a * b
-            }
-            R.id.btn_division -> {
-                result = a / b
+
+            R.id.btn_about_us -> {
+//                val intent = Intent(this,AboutUsActivity::class.java)
+//                startActivity(intent)
+//                finish()
             }
         }
-        binding.resultTv.text = getString(R.string.result_is, result.toString())
+    }
+
+    private fun setStyledText() {
+        val aquamarineColor = ContextCompat.getColor(this, R.color.aquamarine)
+
+        val textInvestigato = getString(R.string.investigato_invest)
+        val builder = SpannableStringBuilder(textInvestigato)
+
+        applyColorSpan(builder, textInvestigato, COLORED_WORD_1, aquamarineColor)
+        applyColorSpan(builder, textInvestigato, COLORED_WORD_2, aquamarineColor)
+
+        binding.textViewInvestigato.text = builder
+    }
+
+    private fun applyColorSpan(
+        spannableStringBuilder: SpannableStringBuilder,
+        text: String,
+        wordToBeColored: String,
+        color: Int
+    ) {
+        val startWord = text.indexOf(wordToBeColored)
+        val endWord = startWord + wordToBeColored.length
+        if (startWord != -1) {
+            spannableStringBuilder.setSpan(
+                ForegroundColorSpan(color),
+                startWord,
+                endWord,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+        }
     }
 }
