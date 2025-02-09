@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.activity.OnBackPressedCallback
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
@@ -28,6 +29,17 @@ class AboutUsActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        // Handle back press using OnBackPressedDispatcher
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Log.d("CustomLogs", "Handle the back button press")
+                val intent = Intent(this@AboutUsActivity, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            }
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -35,7 +47,6 @@ class AboutUsActivity : AppCompatActivity() {
             android.R.id.home -> {
                 // Handle the "Up" button click
                 Log.d("CustomLogs", "Handle the \"Up\" button click")
-//                NavUtils.navigateUpFromSameTask(this)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 true

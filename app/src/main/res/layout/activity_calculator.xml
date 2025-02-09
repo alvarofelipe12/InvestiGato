@@ -7,4 +7,139 @@
     android:layout_height="match_parent"
     tools:context=".presentation.CalculatorActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/logo_of_the_company"
+                    android:paddingTop="?attr/actionBarSize"
+                    android:src="@drawable/chilled_cat_pet1" />
+
+                <!--                Video Including a local video in vp9 format? -->
+                <VideoView
+                    android:id="@+id/vv_cat_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/simulator_of_the_performance"
+                    android:textColor="@color/aquamarine"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="@string/lorem_ipsum" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/monthly_contribution"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="30sp" />
+                <!--Input for money tbd-->
+                <EditText
+                    android:id="@+id/ed_monthly_investment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_a_quantity"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/tv_investing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Investing: $0.00"
+                    android:textColor="@color/aquamarine"
+                    android:textSize="30sp" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_investment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stepSize="5.0"
+                    android:valueFrom="0.0"
+                    android:valueTo="100.0" />
+
+                <TextView
+                    android:id="@+id/tv_in_x_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="In 1 year"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="30sp" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_years"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stepSize="1.0"
+                    android:valueFrom="0.0"
+                    android:valueTo="100.0" />
+
+                <TextView
+                    android:id="@+id/tv_you_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="You'll receive: $5000.00 USD"
+                    android:textSize="30sp" />
+
+                <!-- Insert bar graphic with investment growing -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/blue_bar_text"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/orange_bar_text"
+                    android:textColor="@color/orange"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/aquamarine_bar_text"
+                    android:textColor="@color/aquamarine"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,4 +56,10 @@
     <string name="type_here_your_message">Type here your message</string>
     <string name="facebook_icon_by_icons8">Facebook icon by Icons8</string>
     <string name="send">Send</string>
+    <string name="simulator_of_the_performance">This is a simulator of the performance you will have with your investment</string>
+    <string name="monthly_contribution">Monthly contribution</string>
+    <string name="enter_a_quantity">Enter a quantity</string>
+    <string name="blue_bar_text">Blue bar: Value of capital if you put it under your matress 🛌</string>
+    <string name="orange_bar_text">Orange bar: Value of the investment with annual inflation</string>
+    <string name="aquamarine_bar_text">Aquamarine bar: Value of the investment monthly 📈</string>
 </resources>
