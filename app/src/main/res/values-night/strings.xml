@@ -21,4 +21,6 @@
     <string name="blue_bar_text">Blue bar: Value of capital if you put it under your matress 🛌</string>
     <string name="orange_bar_text">Orange bar: Value of the investment with annual inflation</string>
     <string name="aquamarine_bar_text">Aquamarine bar: Value of the investment monthly 📈</string>
+    <string name="mute_button">Mute button</string>
+    <string name="unmute_button">Unmute button</string>
 </resources>
