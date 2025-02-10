@@ -100,4 +100,9 @@ class CalculatorActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.release()
+    }
 }
