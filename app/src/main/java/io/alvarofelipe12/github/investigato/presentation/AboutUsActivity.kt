@@ -1,22 +1,21 @@
 package io.alvarofelipe12.github.investigato.presentation
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NavUtils
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import io.alvarofelipe12.github.investigato.MainActivity
 import io.alvarofelipe12.github.investigato.R
 import io.alvarofelipe12.github.investigato.databinding.ActivityAboutUsBinding
 
-class AboutUsActivity : AppCompatActivity() {
+
+class AboutUsActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityAboutUsBinding
 
@@ -40,6 +39,8 @@ class AboutUsActivity : AppCompatActivity() {
                 finish()
             }
         })
+        binding.btnSend.setOnClickListener(this)
+        binding.btnFacebook.setOnClickListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -53,6 +54,80 @@ class AboutUsActivity : AppCompatActivity() {
             }
 
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onClick(view: View?) {
+        if (view != null) {
+            when (view.id) {
+                R.id.btn_send -> {
+                    Log.d("CustomLog", "Clicked send btn")
+                    validateData()
+                }
+
+                R.id.btn_facebook -> {
+                    openFacebookPage()
+                }
+            }
+        }
+    }
+
+    private fun validateData() {
+        val validData = validateFields()
+
+        if (validData) {
+            val fullName = binding.etName.text.toString()
+            val email = binding.etEmail.text.toString()
+            val phoneNumber = binding.etPhone.text.toString()
+            val message = binding.etMessage.text.toString()
+            Log.d("CustomLog", "Valid data")
+            val intent = Intent(Intent.ACTION_SENDTO)
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Contact us Form")
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Name: $fullName\nEmail: $email\nPhone number: $phoneNumber\nMessage: $message"
+            )
+            intent.setData(Uri.parse("mailto:alvarofelipe_1@hotmail.com"))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }
+        } else {
+            Log.d("CustomLog", "Invalid data")
+            Toast.makeText(this, "Please provide correct inputs", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun validateFields(): Boolean {
+        var validData = true
+        if (binding.etName.text.toString().isEmpty()) {
+            binding.etName.error = "Full Name is required"
+            validData = false
+        }
+        if (binding.etEmail.text.toString().isEmpty()) {
+            binding.etEmail.error = "Email is required"
+            validData = false
+        }
+        if (binding.etPhone.text.toString().isEmpty()) {
+            binding.etPhone.error = "Phone is required"
+            validData = false
+        }
+        if (binding.etMessage.text.toString().isEmpty()) {
+            binding.etMessage.error = "Message is required"
+            validData = false
+        }
+        return validData
+    }
+
+    private fun openFacebookPage() {
+        try {
+            val facebookAppUri = Uri.parse("fb://page/alvarofelipe")
+            val intent = Intent(Intent.ACTION_VIEW, facebookAppUri)
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            val facebookUri = Uri.parse("https://www.facebook.com/alvarofelipe")
+            val intent = Intent(Intent.ACTION_VIEW, facebookUri)
+            startActivity(intent)
         }
     }
 }

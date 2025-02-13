@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,168 +8,203 @@
     android:fitsSystemWindows="true"
     tools:context=".presentation.CalculatorActivity">
 
-
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/logo_of_the_company"
-                android:paddingTop="?attr/actionBarSize"
-                android:src="@drawable/chilled_cat_pet1" />
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:orientation="vertical">
 
-                <FrameLayout
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/logo_of_the_company"
+                    android:paddingTop="?attr/actionBarSize"
+                    android:src="@drawable/chilled_cat_pet1" />
 
-                    <androidx.media3.ui.PlayerView
-                        android:id="@+id/player_view"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:use_controller="false" />
+                        android:layout_height="200dp">
 
-                    <ImageView
-                        android:id="@+id/iv_mute_button"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="bottom"
-                        android:layout_margin="16dp"
-                        android:contentDescription="@string/mute_button"
-                        android:src="@drawable/baseline_volume_off_24" />
-                </FrameLayout>
+                        <androidx.media3.ui.PlayerView
+                            android:id="@+id/player_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:use_controller="false" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/simulator_of_the_performance"
-                    android:textColor="@color/aquamarine"
-                    android:textSize="30sp" />
+                        <ImageView
+                            android:id="@+id/iv_mute_button"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="bottom"
+                            android:layout_margin="16dp"
+                            android:contentDescription="@string/mute_button"
+                            android:src="@drawable/baseline_volume_off_24" />
+                    </FrameLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:text="@string/lorem_ipsum" />
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="@string/monthly_contribution"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="30sp" />
-                <!--Input for money tbd-->
-                <EditText
-                    android:id="@+id/ed_monthly_investment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enter_a_quantity"
-                    android:importantForAutofill="no"
-                    android:inputType="numberDecimal" />
+                        <androidx.media3.ui.PlayerView
+                            android:id="@+id/player_view_online"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:use_controller="false" />
 
-                <TextView
-                    android:id="@+id/tv_investing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="Investing: $0.00"
-                    android:textColor="@color/aquamarine"
-                    android:textSize="30sp" />
+                        <ImageView
+                            android:id="@+id/iv_mute_button_online"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="bottom"
+                            android:layout_margin="16dp"
+                            android:contentDescription="@string/mute_button"
+                            android:src="@drawable/baseline_volume_off_24" />
+                    </FrameLayout>
 
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/slider_investment"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:stepSize="5.0"
-                    android:valueFrom="0.0"
-                    android:valueTo="100.0" />
+                        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                            android:id="@+id/youtube_player_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center" />
 
-                <TextView
-                    android:id="@+id/tv_in_x_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="In 1 year"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="30sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginVertical="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/simulator_of_the_performance"
+                        android:textColor="@color/aquamarine"
+                        android:textSize="30sp" />
 
-                <com.google.android.material.slider.Slider
-                    android:id="@+id/slider_years"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:stepSize="1.0"
-                    android:valueFrom="0.0"
-                    android:valueTo="100.0" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:text="@string/lorem_ipsum" />
 
-                <TextView
-                    android:id="@+id/tv_you_receive"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="You'll receive: $5000.00 USD"
-                    android:textSize="30sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/monthly_contribution"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="30sp" />
+                    <!--Input for money tbd-->
+                    <EditText
+                        android:id="@+id/ed_monthly_investment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_a_quantity"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal" />
 
-                <!-- Insert bar graphic with investment growing -->
+                    <TextView
+                        android:id="@+id/tv_investing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="Investing: $0.00"
+                        android:textColor="@color/aquamarine"
+                        android:textSize="30sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@string/blue_bar_text"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="20sp" />
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_investment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stepSize="5.0"
+                        android:valueFrom="0.0"
+                        android:valueTo="100.0" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@string/orange_bar_text"
-                    android:textColor="@color/orange"
-                    android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/tv_in_x_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="In 1 year"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="30sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@string/aquamarine_bar_text"
-                    android:textColor="@color/aquamarine"
-                    android:textSize="20sp" />
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/slider_years"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stepSize="1.0"
+                        android:valueFrom="0.0"
+                        android:valueTo="100.0" />
+
+                    <TextView
+                        android:id="@+id/tv_you_receive"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="You'll receive: $5000.00 USD"
+                        android:textSize="30sp" />
+
+                    <!-- Insert bar graphic with investment growing -->
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/blue_bar_text"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/orange_bar_text"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/aquamarine_bar_text"
+                        android:textColor="@color/aquamarine"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:elevation="0dp"
-        android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:navigationIcon="?attr/homeAsUpIndicator" />
+            android:elevation="0dp"
+            android:fitsSystemWindows="true">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:navigationIcon="?attr/homeAsUpIndicator" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </FrameLayout>
 
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
