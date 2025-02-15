@@ -55,31 +55,31 @@
                             android:src="@drawable/baseline_volume_off_24" />
                     </FrameLayout>
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp">
+<!--                    <FrameLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="200dp">-->
 
-                        <androidx.media3.ui.PlayerView
-                            android:id="@+id/player_view_online"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            app:use_controller="false" />
+<!--                        <androidx.media3.ui.PlayerView-->
+<!--                            android:id="@+id/player_view_online"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            app:use_controller="false" />-->
 
-                        <ImageView
-                            android:id="@+id/iv_mute_button_online"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="bottom"
-                            android:layout_margin="16dp"
-                            android:contentDescription="@string/mute_button"
-                            android:src="@drawable/baseline_volume_off_24" />
-                    </FrameLayout>
+<!--                        <ImageView-->
+<!--                            android:id="@+id/iv_mute_button_online"-->
+<!--                            android:layout_width="24dp"-->
+<!--                            android:layout_height="24dp"-->
+<!--                            android:layout_gravity="bottom"-->
+<!--                            android:layout_margin="16dp"-->
+<!--                            android:contentDescription="@string/mute_button"-->
+<!--                            android:src="@drawable/baseline_volume_off_24" />-->
+<!--                    </FrameLayout>-->
 
-                        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                            android:id="@+id/youtube_player_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center" />
+<!--                        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView-->
+<!--                            android:id="@+id/youtube_player_view"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center" />-->
 
                     <TextView
                         android:layout_width="match_parent"
@@ -157,10 +157,10 @@
                         android:textSize="30sp" />
 
                     <!-- Insert bar graphic with investment growing -->
-                    <com.github.mikephil.charting.charts.BarChart
-                        android:id="@+id/chart"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp" />
+<!--                    <com.github.mikephil.charting.charts.BarChart-->
+<!--                        android:id="@+id/chart"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="300dp" />-->
 
                     <TextView
                         android:layout_width="match_parent"

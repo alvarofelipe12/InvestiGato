@@ -33,7 +33,7 @@
             android:textAlignment="center"
             android:textColor="@color/dark_blue"
             android:textSize="30sp"
-            tools:text="@string/investigato_invest"/>
+            tools:text="@string/investigato_invest" />
     </LinearLayout>
 
     <LinearLayout
