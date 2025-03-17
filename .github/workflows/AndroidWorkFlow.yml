@@ -50,3 +50,10 @@ jobs:
         with:
           name: ${{ env.date_today }} - ${{ env.repository_name }} - APK(s) debug generated
           path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v1
+        with:
+           generate_release_notes: true
+           prerelease: true
+           files: |
+             app/build/outputs/apk/debug/app-debug.apk
